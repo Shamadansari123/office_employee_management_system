@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'emp_app/css/bootstrap.css' %}">
+    <title>Ofiice Employee Management System</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center alert alert-danger">Ofiice Employee Management System</h1>
+        <div class="row">
+            <div class="col-sm-3"><a class="btn btn-primary" href="/all" role="button"><h4>View All Employees</h4></a></div>
+            <div class="col-sm-3"><a class="btn btn-primary" href="/add" role="button"><h4 class="text-center">Add an Employee</h4></a></div>
+            <div class="col-sm-3"><a class="btn btn-primary" href="/remove" role="button"><h4 class="text-center">Remove an Employee</h4></a></div>
+            <div class="col-sm-3"><a class="btn btn-primary" href="/filter" role="button"><h4>Filter Emp Details</h4></a></div>
+        </div>  
+    </div><br>
+    {% block first %}{% endblock first %}
+
+    <script src="{% static 'emp_app/js/bootstrap.js' %}"></script>
+    <script src="{% static 'emp_app/js/popper.js' %}"></script>
+    <script src="{% static 'emp_app/js/jquery.js' %}"></script>
+</body>
+</html>

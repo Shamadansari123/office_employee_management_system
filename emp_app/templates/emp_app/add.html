@@ -1,0 +1,46 @@
+{% extends 'emp_app/index.html' %}
+
+{% block first %}
+<div class="container mt-5">
+    <h3 class="text-center alert alert-dark">Add New Employee</h3>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form action="/add/" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="first_name">First Name</label>
+                  <input type="text" class="form-control" name="first_name" value="{{first_name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name"  value="{{last_name}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="dept">Department</label>
+                    <input type="text" class="form-control" name="dept"  value="{{dept}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="salary">Salary</label>
+                    <input type="number" class="form-control" name="salary" value="{{salary}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="bonus">Bonus</label>
+                    <input type="number" class="form-control" name="bonus" value="{{bonus}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control"name="role"  value="{{role}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone">Phone</label>
+                    <input type="number" class="form-control" name="phone" value="{{phone}}">
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
+{% endblock first %}

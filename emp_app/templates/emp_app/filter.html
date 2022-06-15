@@ -1,0 +1,68 @@
+{% extends 'emp_app/index.html' %}
+
+{% block first %}
+<div class="container mt-5">
+    
+    <div class="row">
+        <div class="col-sm-3">
+            <h4 class="text-center alert alert-dark">Filter Employee</h4>
+            <form action="/filter/" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="first_name">First Name</label>
+                  <input type="text" class="form-control" name="first_name" value="{{first_name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name"  value="{{last_name}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="dept">Department</label>
+                    <input type="text" class="form-control" name="dept"  value="{{dept}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control"name="role"  value="{{role}}">
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+        <div class="col-sm-9">
+            <h4 class="text-center alert alert-dark">Filtered Employee Detail</h4>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Bonus</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Join Date</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for emp in emp %}
+                  <tr>
+                      <td>{{emp.id}}</td>
+                      <td>{{emp.first_name}}</td>
+                      <td>{{emp.last_name}}</td>
+                      <td>{{emp.dept}}</td>
+                      <td>{{emp.salary}}</td>
+                      <td>{{emp.bonus}}</td>
+                      <td>{{emp.role}}</td>
+                      <td>{{emp.phone}}</td>                      
+                      <td>{{emp.dept.location}}</td>  
+                      <td>{{emp.join_date}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+{% endblock first %}
